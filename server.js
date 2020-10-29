@@ -7,11 +7,12 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 const productRoutes = require("./routes");
-const monggose = require("mongoose");
+const mongoose = require("mongoose");
 
-monggose
+// DB Connect
+mongoose
   .connect(
-    `mongodb+srv://peter:<password>@studying.nmbi9.mongodb.net/Studying?retryWrites=true&w=majority`,
+    `mongodb+srv://<name>:<password>@studying.nmbi9.mongodb.net/Studying?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -31,7 +32,7 @@ app.use((err, req, res, next) => {
 });
 
 const server = app.listen(PORT, () =>
-  console.log(`Server is running on port: $${PORT}`)
+  console.log(`Sserver is running on port :${PORT}`)
 );
 
 module.exports = app;
